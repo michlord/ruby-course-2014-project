@@ -13,27 +13,23 @@
   <h3>Reviews</h3>
   </div>
   <div class="col-lg-3">
-    <div class="row">
-      <div class="col-lg-12">
-        <%= image_tag("no_image.png", class: "img-thumbnail center-block") %>
-      </div>
+    <div class="movie_poster">
+      <%= image_tag("no_image.png", class: "img-thumbnail center-block") %>
     </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <dl class="dl-horizontal">
-          <dt><strong><%= model_class.human_attribute_name(:webpage) %>:</strong></dt>
-          <dd><%= @movie.webpage %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:runtime) %>:</strong></dt>
-          <dd><%= @movie.runtime %> min.</dd>
-          <dt><strong>Genre:</strong></dt>
-          <dd>
-            <% @genres_list[0..-2].each do |g| %>
-            <%= g.name %>,
-            <% end %>
-            <%= @genres_list.last.name %>
-          </dd>
-        </dl>
-      </div>
+    <div class="movie_info">
+      <dl class="dl-horizontal">
+        <dt><strong><%= model_class.human_attribute_name(:webpage) %>:</strong></dt>
+        <dd><%= @movie.webpage %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:runtime) %>:</strong></dt>
+        <dd><%= @movie.runtime %> min.</dd>
+        <dt><strong>Genre:</strong></dt>
+        <dd>
+          <% @genres_list[0..-2].each do |g| %>
+          <%= g.name %>,
+          <% end %>
+          <%= @genres_list.last.name %>
+        </dd>
+      </dl>
     </div>
   </div>
 </div>
