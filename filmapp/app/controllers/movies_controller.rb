@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   
   def show
     @genres_list = @movie.genres
+    @cast_list = @movie.casts
   end
   
   private

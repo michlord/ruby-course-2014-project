@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226130248) do
+ActiveRecord::Schema.define(version: 20141227122507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actors", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,6 +39,17 @@ ActiveRecord::Schema.define(version: 20141226130248) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "casts", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "actor_id"
+    t.text     "character"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "casts", ["actor_id"], name: "index_casts_on_actor_id", using: :btree
+  add_index "casts", ["movie_id"], name: "index_casts_on_movie_id", using: :btree
 
   create_table "genres", force: :cascade do |t|
     t.text     "name"
@@ -58,12 +75,10 @@ ActiveRecord::Schema.define(version: 20141226130248) do
     t.integer  "runtime"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "genre_id"
   end
 
-  add_index "movies", ["genre_id"], name: "index_movies_on_genre_id", using: :btree
-
+  add_foreign_key "casts", "actors"
+  add_foreign_key "casts", "movies"
   add_foreign_key "genres_movies", "genres"
   add_foreign_key "genres_movies", "movies"
-  add_foreign_key "movies", "genres"
 end
