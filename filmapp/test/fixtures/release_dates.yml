@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_id: 
+  date: 2014-12-27
+  country: MyText
+
+two:
+  movie_id: 
+  date: 2014-12-27
+  country: MyText

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227122507) do
+ActiveRecord::Schema.define(version: 20141227203516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20141227122507) do
   add_index "casts", ["actor_id"], name: "index_casts_on_actor_id", using: :btree
   add_index "casts", ["movie_id"], name: "index_casts_on_movie_id", using: :btree
 
+  create_table "crews", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.text     "name"
+    t.text     "function"
+    t.text     "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "crews", ["movie_id"], name: "index_crews_on_movie_id", using: :btree
+
   create_table "genres", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at", null: false
@@ -75,10 +86,23 @@ ActiveRecord::Schema.define(version: 20141227122507) do
     t.integer  "runtime"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "language"
   end
+
+  create_table "release_dates", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.date     "date"
+    t.text     "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "release_dates", ["movie_id"], name: "index_release_dates_on_movie_id", using: :btree
 
   add_foreign_key "casts", "actors"
   add_foreign_key "casts", "movies"
+  add_foreign_key "crews", "movies"
   add_foreign_key "genres_movies", "genres"
   add_foreign_key "genres_movies", "movies"
+  add_foreign_key "release_dates", "movies"
 end

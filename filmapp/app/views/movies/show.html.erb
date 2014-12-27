@@ -2,76 +2,40 @@
        
 <div class="row">
   <div class="col-lg-9">
-  <h2> <%= @movie.title %> <small>(year)</small> </h2>
+  <h2> <%= @movie.title %> <small>(<%= @movie.year %>)</small> </h2>
   <p>Rating: <%= @movie.rating %><!--create star rating helper--></p>
   <h3>Overview</h3>
   <p>
     <%= @movie.description %>
   </p>
-  <h3>Crew</h3>
-  <h3>Cast<small><a href="#" class="pull-right" data-toggle="collapse" data-target=".cast_list">Show All</a></small></h3>
+  <h3>Crew<small><a href="javascript://" class="pull-right" data-toggle="collapse" data-target=".crew_list">Show All</a></small></h3>
   
-  <div class="collapse in cast_list">
-    <table class="table table-hover">
-      <thead>  
-        <tr>
-        <th>
-        Actor Name
-        </th>
-        <th>
-        Character
-        </th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @cast_list[0..2].each do |cast| %>
-        <tr>
-        <td>
-        <%= cast.actor.name %>
-        </td>
-        <td>
-        <%= cast.character %>
-        </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <div class="panel-collapse collapse out crew_list">
+    <%= render partial: "crew", locals: { crew: @crew } %>
   </div>
+  <div class="stub panel-collapse collapse in crew_list">
+    <%= render partial: "crew", locals: { crew: @crew_stub } %>
+  </div>
+  
+  <h3>Cast<small><a href="javascript://" class="pull-right" data-toggle="collapse" data-target=".cast_list">Show All</a></small></h3>
+  
+  
   <div class="panel-collapse collapse out cast_list">
-    <table class="table table-hover">
-      <thead>  
-        <tr>
-        <th>
-        Actor Name
-        </th>
-        <th>
-        Character
-        </th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @cast_list.each do |cast| %>
-        <tr>
-        <td>
-        <%= cast.actor.name %>
-        </td>
-        <td>
-        <%= cast.character %>
-        </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <%= render partial: "cast", locals: { cast_list: @cast_list } %>
   </div>
-
+  <div class="stub panel-collapse collapse in cast_list">
+    <%= render partial: "cast", locals: { cast_list: @cast_list[0..2] } %>
+  </div>
   
   <h3>Reviews<small><a href="#" class="pull-right">Show All</a></small></h3>
   </div>
   <div class="col-lg-3">
     <div class="movie_poster">
+      <h3>Poster</h3>
       <%= image_tag("no_image.png", class: "img-thumbnail center-block") %>
     </div>
     <div class="movie_info">
+      <h3>Facts</h3>
       <dl class="dl-horizontal">
         <dt><strong><%= model_class.human_attribute_name(:webpage) %>:</strong></dt>
         <dd><%= link_to "Link", @movie.webpage %></dd>
@@ -83,6 +47,17 @@
           <%= g.name %>,
           <% end %>
           <%= @genres_list.last.name %>
+        </dd>
+        <dt><strong>Language:</strong></dt>
+        <dd><%= @movie.language %></dd>
+        <dt><strong>Release:</strong></dt>
+          <% @release_dates[0..-2].each do |g| %>
+          <dd>
+          <%= g.country %> <%= g.date %>,
+          </dd>
+          <% end %>
+        <dd>
+          <%= @release_dates.last.country %> <%= @release_dates.last.date %>
         </dd>
       </dl>
     </div>

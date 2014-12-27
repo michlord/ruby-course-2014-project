@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>  
+    <tr>
+    <th style="width: 50%">
+    Actor Name
+    </th>
+    <th style="width: 50%">
+    Character
+    </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% cast_list.each do |cast| %>
+    <tr>
+    <td>
+    <%= cast.actor.name %>
+    </td>
+    <td>
+    <%= cast.character %>
+    </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
