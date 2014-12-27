@@ -9,7 +9,7 @@
 
 m = Movie.new(title: 'Gone Girl', description: "With his wife's disappearance having
  become the focus of an intense media circus, a man sees the spotlight turned on him when
- it's suspected that he may not be innocent.", rating: 8, webpage: 'http://www.gonegirlmovie.com/', runtime: 145,
+ it's suspected that he may not be innocent.", webpage: 'http://www.gonegirlmovie.com/', runtime: 145,
  language: 'English')
  
 g1 = Genre.new(name: 'Drama')
