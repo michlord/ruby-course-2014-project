@@ -1,0 +1,39 @@
+<%- model_class = Movie -%>
+       
+<div class="row">
+  <div class="col-lg-9">
+  <h2> <%= @movie.title %> <small>(year)</small> </h2>
+  <p>Rating: <%= @movie.rating %><!--create star rating helper--></p>
+  <h3>Overview</h3>
+  <p>
+    <%= @movie.description %>
+  </p>
+  <h3>Crew</h3>
+  <h3>Cast</h3>
+  <h3>Reviews</h3>
+  </div>
+  <div class="col-lg-3">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= image_tag("no_image.png", class: "img-thumbnail center-block") %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <dl class="dl-horizontal">
+          <dt><strong><%= model_class.human_attribute_name(:webpage) %>:</strong></dt>
+          <dd><%= @movie.webpage %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:runtime) %>:</strong></dt>
+          <dd><%= @movie.runtime %> min.</dd>
+          <dt><strong>Genre:</strong></dt>
+          <dd>
+            <% @genres_list[0..-2].each do |g| %>
+            <%= g.name %>,
+            <% end %>
+            <%= @genres_list.last.name %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

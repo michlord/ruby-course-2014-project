@@ -1,0 +1,66 @@
+<%= form_for @movie, :html => { :class => "form-horizontal movie" } do |f| %>
+
+    <% if @movie.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :rating, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :rating, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:rating]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :webpage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :webpage, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:webpage]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :runtime, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :runtime, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:runtime]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :genre_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :genre_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@movie[:genre_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            movies_path, :class => 'btn btn-default' %>
+
+<% end %>
