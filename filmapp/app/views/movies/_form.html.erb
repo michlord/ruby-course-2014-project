@@ -30,13 +30,6 @@
     <%= error_span(@movie[:description]) %>
   </div>
   <div class="control-group">
-    <%= f.label :rating, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :rating, :class => 'form-control' %>
-    </div>
-    <%= error_span(@movie[:rating]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :webpage, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :webpage, :class => 'form-control' %>
@@ -51,12 +44,14 @@
     <%= error_span(@movie[:runtime]) %>
   </div>
   <div class="control-group">
-    <%= f.label :genre_id, :class => 'control-label' %>
+    <%= f.label :poster, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :genre_id, :class => 'form-control' %>
+      <%= f.file_field :poster %>
     </div>
-    <%= error_span(@movie[:genre_id]) %>
+    <%= error_span(@movie[:poster]) %>
   </div>
+  
+  
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
