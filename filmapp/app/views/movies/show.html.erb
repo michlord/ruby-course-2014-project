@@ -32,7 +32,7 @@
   <div class="col-lg-3">
     <div class="movie_poster">
       <h3>Poster</h3>
-      <%= image_tag("no_image.png", class: "img-thumbnail center-block") %>
+      <%= image_tag @movie.poster.url(:thumb), class: "img-thumbnail center-block" %>
     </div>
     <div class="movie_info">
       <h3>Facts</h3>
