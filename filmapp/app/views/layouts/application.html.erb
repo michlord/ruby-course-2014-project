@@ -52,14 +52,14 @@
             <li><%= link_to "Lists", "/lists"  %></li>
           </ul>
           <p class="navbar-text navbar-right">
-            <% if admin_signed_in? %>
-            Signed in as <%= current_admin.email %>
-            <%= link_to "Sign out", destroy_admin_session_path, { method: :delete, class: "navbar-link" } %>
+            <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>
+            <%= link_to "Sign out", destroy_user_session_path, { method: :delete, class: "navbar-link" } %>
             <% else %>
             You are not signed in.
-            <%= link_to "Sign up", new_admin_registration_path, { class: "navbar-link"} %>
+            <%= link_to "Sign up", new_user_registration_path, { class: "navbar-link"} %>
             or
-            <%= link_to "Sing in", new_admin_session_path, { class: "navbar-link"}  %>
+            <%= link_to "Sing in", new_user_session_path, { class: "navbar-link"}  %>
             <% end %>
           </p>
         </div>

@@ -24,4 +24,5 @@ class Movie < ActiveRecord::Base
       release_dates.minimum('date').year
     end
   end
+  ratyrate_rateable 'score'
 end

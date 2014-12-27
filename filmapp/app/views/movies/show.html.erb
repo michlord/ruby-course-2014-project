@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-lg-9">
   <h2> <%= @movie.title %> <small>(<%= @movie.year %>)</small> </h2>
-  <p>Rating: <%= @movie.rating %><!--create star rating helper--></p>
+  <%= rating_for @movie, "score" %>
   <h3>Overview</h3>
   <p>
     <%= @movie.description %>
