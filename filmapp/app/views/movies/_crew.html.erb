@@ -1,9 +1,13 @@
-<% crew.each do |key, val| %>
-  <h4> <%= key %> </h4>
-      <dl class="dl-horizontal">
-      <% val.each do |person| %>
-        <dd><b><%= person[:name] %></b></dd>
-        <dd><%= person[:role] %></dd>
-      <% end %>
-      </dl>
+<% if crew %>
+  <% crew.each do |key, val| %>
+    <h4> <%= key %> </h4>
+        <dl class="dl-horizontal">
+        <% val.each do |person| %>
+          <dd><b><%= person[:name] %></b></dd>
+          <dd><%= person[:role] %></dd>
+        <% end %>
+        </dl>
+  <% end %>
+<% else %>
+  No data.
 <% end %>

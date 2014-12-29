@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/michlord/ratyrate.git
+  revision: d76d959c80ae13dc7546f1607e1a6834ecc29e1d
+  branch: master
+  specs:
+    ratyrate (1.2.2.alpha)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,7 +139,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    ratyrate (1.2.2.alpha)
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
@@ -198,7 +204,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   rails (= 4.2.0)
-  ratyrate
+  ratyrate!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

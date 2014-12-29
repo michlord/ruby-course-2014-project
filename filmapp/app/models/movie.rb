@@ -27,4 +27,5 @@ class Movie < ActiveRecord::Base
   ratyrate_rateable 'score'
   has_attached_file :poster, :styles => { :medium => "454x720>", :thumb => "185x278>" }, :default_url => ":style/missing.png"
   validates_attachment_content_type :poster, :content_type => /\Aimage\/.*\Z/
+  has_many :reviews
 end
