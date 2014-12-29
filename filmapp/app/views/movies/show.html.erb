@@ -27,7 +27,7 @@
     <%= render partial: "cast", locals: { cast_list: @cast_list[0..2] } %>
   </div>
   
-  <h3>Reviews<small><a href="#" class="pull-right">Show All</a></small></h3>
+  <h3>Reviews<small><%= link_to "Show All", paginated_movie_reviews_path(@movie, 1), class: "pull-right" %></small></h3>
   <%if @review %>
   <h4><%= @review.headline %></h4> User (<%= @review.user.email %>) score: <%= rating_for_user @movie, @review.user, "score"%>
   <p><%= @review.content %></p>
@@ -49,10 +49,9 @@
         <dd><%= @movie.runtime %> min.</dd>
         <dt><strong>Genre:</strong></dt>
         <dd>
-          <% @genres_list[0..-2].each do |g| %>
-          <%= g.name %>,
+          <% @genres_list.each do |g| %>
+          <span class="label label-info tags"><%= g.name %></span>
           <% end %>
-          <%= @genres_list.last.name %>
         </dd>
         <dt><strong>Language:</strong></dt>
         <dd><%= @movie.language %></dd>

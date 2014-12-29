@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   
   def update
     if @movie.update(movie_params)
-      redirect_to movie_path(@movie), notice: 'Product was successfully updated.'
+      redirect_to movie_path(@movie), notice: 'Movie was successfully updated.'
     else
       render action: 'edit'
     end

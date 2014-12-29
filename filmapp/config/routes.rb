@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
   
-  resources :movies
+  resources :movies do
+    resources :reviews, only: [:new, :create] do
+      get 'page/:page', to: 'reviews#page' , on: :collection, as: :paginated
+    end
+  end
+  resources :reviews, only: [:show, :edit, :update, :destroy]
+  
   #get 'movies/:id' => 'movies#show'
   
   #get 'welcome/index'

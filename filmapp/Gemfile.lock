@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/michlord/ratyrate.git
-  revision: d76d959c80ae13dc7546f1607e1a6834ecc29e1d
+  revision: 2e7bca357363bf74d0621fcabc5c7f5a5af7d151
   branch: master
   specs:
     ratyrate (1.2.2.alpha)
@@ -190,6 +190,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -213,3 +214,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate (~> 3.0.6)

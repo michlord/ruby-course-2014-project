@@ -1,0 +1,8 @@
+Reviews#page
+
+<% @reviews.each do |review| %>
+  <h4><%= review.headline %></h4> User (<%= review.user.email %>) score: <%= rating_for_user @movie, review.user, "score"%>
+  <p><%= review.content %></p>
+<% end %>
+
+<%= will_paginate @reviews %>
