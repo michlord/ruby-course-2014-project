@@ -47,9 +47,6 @@ GEM
     bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (4.0.2)
-      sass (~> 3.3)
-      thor
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -157,6 +154,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -194,12 +194,13 @@ GEM
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bourbon
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -212,6 +213,7 @@ DEPENDENCIES
   ratyrate!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   spring
   therubyracer
   turbolinks
@@ -219,3 +221,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate (~> 3.0.6)
+  will_paginate-bootstrap

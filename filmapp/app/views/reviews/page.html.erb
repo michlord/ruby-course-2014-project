@@ -1,9 +1,5 @@
-<h2>Reviews</h2>
+<h2>Reviews<small> for <%= @movie.title %></small></h2>
+ 
+<%= render partial: "review", locals: { reviews: @reviews } %>
 
-
-
-<ul class="timeline">  
-  <%= render partial: "review", locals: { reviews: @reviews } %>
-</ul>
-
-<%= will_paginate @reviews %>
+<%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
