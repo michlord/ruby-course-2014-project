@@ -28,12 +28,7 @@
   </div>
   
   <h3>Reviews<small><%= link_to "Show All", paginated_movie_reviews_path(@movie, 1), class: "pull-right" %></small></h3>
-  <%if @review %>
-  <h4><%= @review.headline %></h4> User (<%= @review.user.email %>) score: <%= rating_for_user @movie, @review.user, "score"%>
-  <p><%= @review.content %></p>
-  <% else %>
-    No reviews.
-  <% end %>
+  <%= render partial: "reviews/review", locals: { reviews: [@review] } %>
   </div>
   <div class="col-lg-3">
     <div class="movie_poster">

@@ -1,8 +1,9 @@
-Reviews#page
+<h2>Reviews</h2>
 
-<% @reviews.each do |review| %>
-  <h4><%= review.headline %></h4> User (<%= review.user.email %>) score: <%= rating_for_user @movie, review.user, "score"%>
-  <p><%= review.content %></p>
-<% end %>
+
+
+<ul class="timeline">  
+  <%= render partial: "review", locals: { reviews: @reviews } %>
+</ul>
 
 <%= will_paginate @reviews %>
