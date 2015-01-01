@@ -20,6 +20,12 @@ def load_movies_info()
   JSON.parse(IO.read(File.join(Rails.root, "/db/seeds/movies.json")))
 end
 
+def friendly_filename(filename)
+    filename.gsub(/[^\w\s_-]+/, '')
+            .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
+            .gsub(/\s+/, '_')
+end
+
 movies_info = load_movies_info
 
 movies_info.each do |movie_info|
@@ -32,7 +38,7 @@ movies_info.each do |movie_info|
     webpage: movie_info["webpage"],
     runtime: movie_info["runtime"],
     language: movie_info["language"],
-    poster: seed_image("posters/" + movie_info["title"].downcase.tr(" ", "_")),
+    poster: seed_image("posters/" + friendly_filename(movie_info["title"].downcase)),
     genres: movie_info["genres"].map { |genre| create_if_not_exists(genres, genre) { Genre.create!(name: genre) } },
     crews: movie_info["crew"].map { |crew| Crew.create!(name: crew["name"], function: crew["function"], role: crew["role"]) },
     casts: movie_info["cast"].map do |cast|

@@ -291,8 +291,19 @@
                 "country": "Poland"
             }
         ],
-        "cast": [],
-        "crew": [],
+        "cast": [
+            {
+                "actor": "Matthew McConaughey",
+                "character": "Cooper"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Christopher Nolan",
+                "function": "Directing",
+                "role": "Director"
+            }
+        ],
         "reviews": [],
         "ratings": []
     },
@@ -365,6 +376,141 @@
                 "name": "Dan Sterling",
                 "function": "Writing",
                 "role": "Story"
+            }
+        ],
+        "reviews": [],
+        "ratings": []
+    },
+    {
+        "title": "The Drop",
+        "description": "Bob Saginowski finds himself at the center of a robbery gone awry and entwined in an investigation that digs deep into the neighborhood's past where friends, families, and foes all work together to make a living - no matter the cost.",
+        "webpage": "",
+        "runtime": 106,
+        "language": "English",
+        "genres": [
+            "Drama",
+            "Crime"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-09-12",
+                "country": "United States"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Tom Hardy",
+                "character": "Bob"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Michaël R. Roskam",
+                "function": "Directing",
+                "role": "Director"
+            }
+        ],
+        "reviews": [],
+        "ratings": []
+    },
+    {
+        "title": "Fury",
+        "description": "Last months of World War II in April 1945. As the Allies make their final push in the European Theater, a battle-hardened U.S. Army sergeant in the 2nd Armored Division named Wardaddy commands a Sherman tank called \"Fury\" and its five-man crew on a deadly mission behind enemy lines. Outnumbered and outgunned, Wardaddy and his men face overwhelming odds in their heroic attempts to strike at the heart of Nazi Germany.",
+        "webpage": "",
+        "runtime": 135,
+        "language": "English",
+        "genres": [
+            "War",
+            "Drama",
+            "Action"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-10-17",
+                "country": "United States"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Brad Pitt",
+                "character": "Don 'Wardaddy' Collier"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Dody Dorn",
+                "function": "Directing",
+                "role": "Director"
+            }
+        ],
+        "reviews": [],
+        "ratings": []
+    },
+    {
+        "title": "The Hunger Games: Mockingjay - Part 1",
+        "description": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+        "webpage": "",
+        "runtime": 123,
+        "language": "English",
+        "genres": [
+            "Science Fiction",
+            "Adventure",
+            "Thriller"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-11-21",
+                "country": "United States"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Jennifer Lawrence",
+                "character": "Katniss Everdeen"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Francis Lawrence",
+                "function": "Directing",
+                "role": "Director"
+            }
+        ],
+        "reviews": [],
+        "ratings": []
+    },
+    {
+        "title": "The Equalizer",
+        "description": "In The Equalizer, Denzel Washington plays McCall, a man who believes he has put his mysterious past behind him and dedicated himself to beginning a new, quiet life. But when McCall meets Teri (Chloë Grace Moretz), a young girl under the control of ultra-violent Russian gangsters, he can’t stand idly by – he has to help her. Armed with hidden skills that allow him to serve vengeance against anyone who would brutalize the helpless, McCall comes out of his self-imposed retirement and finds his desire for justice reawakened. If someone has a problem, if the odds are stacked against them, if they have nowhere else to turn, McCall will help. He is The Equalizer.",
+        "webpage": "",
+        "runtime": 132,
+        "language": "English",
+        "genres": [
+            "Thriller",
+            "Action",
+            "Crime"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-09-26",
+                "country": "United States"
+            },
+            {
+                "date": "2014-09-25",
+                "country": "Poland"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Denzel Washington",
+                "character": "Robert McCall"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Antoine Fuqua",
+                "function": "Directing",
+                "role": "Director"
             }
         ],
         "reviews": [],
