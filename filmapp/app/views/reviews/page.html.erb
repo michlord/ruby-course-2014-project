@@ -1,4 +1,6 @@
-<h2>Reviews<small> for <%= @movie.title %></small></h2>
+<%= image_tag @movie.poster.url(:thumb), class: "img-thumbnail pull-left", size: "98" %>
+<h2> Reviews<small> for <%= @movie.title %></small></h2>
+<div class="clearfix"></div>
  
 <%= render partial: "review", locals: { reviews: @reviews } %>
 

@@ -1,3 +1,44 @@
+
+<h3>Search movies</h3>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1"><span class="fa fa-search"></span></span>
+      <input type="text" class="form-control" placeholder="Search here" aria-describedby="sizing-addon1">
+    </div>
+  </div>
+</div>
+
+<h3>Browse by genre</h3>
+<div class="section-border">
+  <div class="row">
+  <% @genres.in_groups(3, false) do |genres| %>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <div class="list-group">
+        <% genres.each do |genre| %>
+        <li class="list-group-item text-center"><a href="#"><%= genre.name %></a></li>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<h3>Suggested</h3>
+<div class="section-border">
+  <div class="row">
+  <% @movies.in_groups(3, false) do |movies| %>
+    <div class="col-lg-4">
+      <% movies.each do |movie| %>
+      <%= render partial: "movie", locals: { movie: movie } %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+
+
 <%- model_class = Movie -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>

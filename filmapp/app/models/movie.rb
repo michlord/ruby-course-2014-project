@@ -15,17 +15,38 @@ class Movie < ActiveRecord::Base
       hash
     end
   end
+  def director_name
+    d = crews.find_by(role: 'Director')
+    if d != nil
+      d.name
+    else
+      ''
+    end
+  end
   has_many :release_dates
   def year
     us_release = release_dates.find_by(country: "United States")
     if us_release != nil
       us_release.date.year
     else
-      release_dates.minimum('date').year
+      m = release_dates.minimum('date')
+      if m != nil
+        m.year
+      else
+        0
+      end
     end
   end
   ratyrate_rateable 'score'
   has_attached_file :poster, :styles => { :medium => "454x720>", :thumb => "185x278>" }, :default_url => ":style/missing.png"
   validates_attachment_content_type :poster, :content_type => /\Aimage\/.*\Z/
-  has_many :reviews
+  has_many :reviews do
+    def random
+      # id's are not consecutive for a movie's reviews
+      # so lets use whole possible id range for the random
+      # value.
+      rand_id = rand (Review.count + 1)
+      where("id >= ?", rand_id).first
+    end
+  end
 end

@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
   def page
-    @reviews = Review.paginate(page: params[:page], per_page: 5)
     @movie = Movie.find(params[:movie_id])
-    
+    @reviews = @movie.reviews.paginate(page: params[:page], per_page: 5)
   end
   
   def new

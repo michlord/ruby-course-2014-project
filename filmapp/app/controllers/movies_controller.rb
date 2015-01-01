@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   
   def index
     @movies = Movie.all
+    @genres = Genre.all
   end
   
   def show
@@ -11,7 +12,7 @@ class MoviesController < ApplicationController
     @crew = @movie.crews.printable
     @crew_stub = {"Directing" => @crew["Directing"], "Writing" => @crew["Writing"]}.delete_if { |k, v| v.nil? }
     @release_dates = @movie.release_dates
-    @review = Review.random_review
+    @review = @movie.reviews.random
   end
   
   def edit

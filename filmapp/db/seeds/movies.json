@@ -1,0 +1,373 @@
+[
+    {
+        "title": "Gone Girl",
+        "description": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
+        "webpage": "http://www.gonegirlmovie.com/",
+        "runtime": 145,
+        "language": "English",
+        "genres": [
+            "Drama",
+            "Thriller"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-10-03",
+                "country": "United States"
+            },
+            {
+                "date": "2014-10-09",
+                "country": "Poland"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Ben Affleck",
+                "character": "Nick Dunne"
+            },
+            {
+                "actor": "Tyler Perry",
+                "character": "Amy Dunne"
+            },
+            {
+                "actor": "Rosamund Pike",
+                "character": "Tanner Bolt"
+            },
+            {
+                "actor": "Neil Patrick Harris",
+                "character": "Desi Collins"
+            },
+            {
+                "actor": "Missi Pyle",
+                "character": "Ellen Abbott"
+            },
+            {
+                "actor": "Patrick Fugit",
+                "character": "Detective Jim Gulpin"
+            },
+            {
+                "actor": "Kim Dickens",
+                "character": "Detective Rhonda Boney"
+            },
+            {
+                "actor": "Casey Wilson",
+                "character": "Noelle Hawthorne"
+            },
+            {
+                "actor": "Kathleen Rose Perkins",
+                "character": "Shawna Kelly"
+            },
+            {
+                "actor": "Emily Ratajkowski",
+                "character": "Andie Hardy"
+            },
+            {
+                "actor": "Scoot McNairy",
+                "character": "Tommy"
+            },
+            {
+                "actor": "Boyd Holbrook",
+                "character": "Jeff"
+            },
+            {
+                "actor": "Carrie Coon",
+                "character": "Margo Dunne"
+            }
+        ],
+        "crew": [
+            {
+                "name": "David Fincher",
+                "function": "Directing",
+                "role": "Director"
+            },
+            {
+                "name": "Gillian Flynn",
+                "function": "Writing",
+                "role": "Novel"
+            },
+            {
+                "name": "Gillian Flynn",
+                "function": "Writing",
+                "role": "Screenplay"
+            },
+            {
+                "name": "Reese Witherspoon",
+                "function": "Production",
+                "role": "Producer"
+            },
+            {
+                "name": "Leslie Dixon",
+                "function": "Production",
+                "role": "Producer"
+            },
+            {
+                "name": "Bruna Papandrea",
+                "function": "Production",
+                "role": "Producer"
+            },
+            {
+                "name": "Laray Mayfield",
+                "function": "Production",
+                "role": "Casting"
+            },
+            {
+                "name": "Jeff Cronenweth",
+                "function": "Camera",
+                "role": "Director of Photography"
+            },
+            {
+                "name": "Kirk Baxter",
+                "function": "Editing",
+                "role": "Editor"
+            }
+        ],
+        "reviews": [
+            {
+                "headline": "It Surprises you and those 150 minutes never feel that long",
+                "content": "2014 has had it's good share of movies and good movies for that matter, we've had the Nolan's Mind boggling interstellar to start with and then the grand Budapest hotel which got much of the appreciation by all and sundry. We had our good share of sequels and prequels ranging from The Planet of Apes series to spider-man, X-men, Hobbit, how to train your dragon, 300, Hunger games, 22 jump street, horrible bosses two, dumb and dumber two, transformers, expendables and.... *Sigh* it doesn't stop here there's more to them a lot more but it isn't about all of these.\n\n                  The movie starts as a normal murder mystery and somewhere 15-20 minutes in the movie you'd be like what makes it deserve all that appreciation? But wait, it hasn't even started yet. It isn't all what it seems like and one surely can't judge the book by its cover in this case. The movie is fully of surprises and at the end of it you'd be all smiles that's all i can say!\n\n                  I'm not here to give away spoilers but if you haven't watched this masterpiece yet just rush back home and order it on Netflix or buy the DVD.",
+                "user": "michal.zimi@gmail.com"
+            }
+        ],
+        "ratings": [
+            {
+                "stars": 4,
+                "user": "michal.zimi@gmail.com"
+            },
+            {
+                "stars": 5,
+                "user": "ania.zimi@gmail.com"
+            }
+        ]
+    },
+    {
+        "title": "Guardians of the Galaxy",
+        "description": "Light years from Earth, 26 years after being abducted, Peter Quill finds\n himself the prime target of a manhunt after discovering an orb wanted \nby Ronan the Accuser.",
+        "webpage": "http://marvel.com/guardians",
+        "runtime": 121,
+        "language": "English",
+        "genres": [
+            "Science Fiction",
+            "Fantasy",
+            "Adventure"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-08-01",
+                "country": "United States"
+            },
+            {
+                "date": "2014-08-01",
+                "country": "Poland"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "Chris Pratt",
+                "character": "Peter Quill"
+            },
+            {
+                "actor": "Zoe Saldana",
+                "character": "Gamora"
+            },
+            {
+                "actor": "Dave Bautista",
+                "character": "Drax"
+            },
+            {
+                "actor": "Vin Diesel",
+                "character": "Groot (voice)"
+            },
+            {
+                "actor": "Bradley Cooper",
+                "character": "Rocket (voice)"
+            },
+            {
+                "actor": "Lee Pace",
+                "character": "Ronan"
+            },
+            {
+                "actor": "Michael Rooker",
+                "character": "Yondu Udonta"
+            },
+            {
+                "actor": "Karen Gillan",
+                "character": " Nebula"
+            },
+            {
+                "actor": "Djimon Hounsou",
+                "character": "Korath"
+            },
+            {
+                "actor": "John C. Reilly",
+                "character": " Corpsman Dey"
+            }
+        ],
+        "crew": [
+            {
+                "name": "James Gunn",
+                "function": "Directing",
+                "role": "Director"
+            },
+            {
+                "name": "Trisha Burton",
+                "function": "Directing",
+                "role": "Script Supervisor"
+            },
+            {
+                "name": "Paula Casarin",
+                "function": "Directing",
+                "role": "Script Supervisor"
+            },
+            {
+                "name": "Suzanne McGeachan",
+                "function": "Directing",
+                "role": "Script Supervisor"
+            },
+            {
+                "name": "Nicole Perlman",
+                "function": "Writing",
+                "role": "Screenplay"
+            },
+            {
+                "name": "James Gunn",
+                "function": "Writing",
+                "role": "Screenplay"
+            },
+            {
+                "name": "Dan Abnett",
+                "function": "Writing",
+                "role": "Screenplay"
+            },
+            {
+                "name": "Andy Lanning",
+                "function": "Writing",
+                "role": "Characters"
+            },
+            {
+                "name": "Sarah Finn",
+                "function": "Production",
+                "role": "Casting"
+            }
+        ],
+        "reviews": [
+            {
+                "headline": "A Stunning Surprise",
+                "content": "Guardians\n of the Galaxy is nothing short of an amazing movie. If there's anything\n I can say, it's that it is the best superhero movie I have seen. Not \nonly does it have the impressive set pieces and enough action to last \nyou a lifetime, it has an emotional core and you actually get to care \nabout each and every single character. Overall this movie is filled with\n all the required thrills and spills and is a first class action movie. \nIt also has a great mixture of comedic value and a deal of seriousness. \n\nThe\n film's unlikely hero is Quill (Chris Pratt), an eccentric gunfighter in\n the Han Solo mould who we meet stealing a metal orb coveted by the evil\n warlord Ronan. When he dispatches his top assassin, the green- skinned \nGamora (Zoe Saldana), to recover the artifact, the pair find themselves \nlocked up, along with the galaxy's most unlikely bounty hunters – a \ngun-toting raccoon (Bradley Cooper) and his sidekick (Vin Diesel) who \njust happens to be a walking tree. All the actors do a great job at \nportraying there characters, they feel real beings. You get to know \nabout them and their struggles and you become attached to them. Every \ncharacter in the movie got their time to shine, especially Rocket \nRaccoon who is voiced perfectly by Bradley Cooper. Everyone is pitch \nperfect in their roles even Batista! \n\nFor those that want \nspecifics: effects were top notch, acting was excellent, story lines \nwere compelling, the comedy was perfect 99.5% of the time and surprise \nthere were a lot of one line typical superhero zingers that worked \nreally well. What really can't be stressed enough is just how insanely \nfun and entertaining Guardians of the Galaxy is for literally its entire\n two-hour-plus run-time. I still have a hard time wrestling with who was\n my favorite actor in this. all in all, the film is brilliantly well \ndone, action scenes are engrossing and genuinely done, you genuinely \nworry about certain characters and I for one was thrilled with it. Go \nsee this.",
+                "user": "ania.zimi@gmail.com"
+            },
+            {
+                "headline": "Hugely overrated",
+                "content": "The movie was recommended to me by a friend who saw the reviews and\nsomehow believed those. Huge mistake.\n\nTo say the movie is childish would be an honor for this movie, I have\nseen plenty of animated movies which were a huge lot better.\n\nThe story is dumb and entirely predictable. The characters are almost\nflat and have absolutely no credibility from either a serious point of\nview nor from a parody point of view. Acting was also poor.\n\nVisual effects were OK and being a 3D movie helped, but that is the\nonly positive thing that I can say about the movie.\n\nThe theater was half-full but during the entire movie there was not a\nsingle time when you could hear everybody laughing hard.\n\nThe only way I can imagine that so many 9 and 10 star reviews were\nadded for this movie is since all the brainwashed Marvel fan-boys and\nsock-puppets for the studios somehow managed to overwhelm normal\nreviewers.\n",
+                "user": "michal.zimi@gmail.com"
+            }
+        ],
+        "ratings": [
+            {
+                "stars": 1,
+                "user": "michal.zimi@gmail.com"
+            },
+            {
+                "stars": 5,
+                "user": "ania.zimi@gmail.com"
+            }
+        ]
+    },
+    {
+        "title": "Interstellar",
+        "description": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+        "webpage": "http://www.interstellarmovie.com/",
+        "runtime": 169,
+        "language": "English",
+        "genres": [
+            "Drama",
+            "Science Fiction"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-08-01",
+                "country": "United States"
+            },
+            {
+                "date": "2014-08-01",
+                "country": "Poland"
+            }
+        ],
+        "cast": [],
+        "crew": [],
+        "reviews": [],
+        "ratings": []
+    },
+    {
+        "title": "The Interview",
+        "description": "Dave Skylark is king of the celebrity interview and host of the hit night time talk show \"Skylark Tonight.\" The brain behind Dave's empire is his producer and best friend, Aaron Rapoport. Unfulfilled, Aaron yearns to do meaningful work. He scores the chance of a lifetime when he secures an interview for Dave with Kim Jong-Un, the mysterious and ruthless dictator of a nuclear-armed North Korea. As Dave and Aaron prepare to leave for North Korea, they are approached by the CIA and asked to assassinate Kim. They accept the mission, becoming two of the least qualified men ever to assassinate – or interview – the most dangerous man on earth.",
+        "webpage": "",
+        "runtime": 112,
+        "language": "English",
+        "genres": [
+            "Action",
+            "Comedy"
+        ],
+        "release_dates": [
+            {
+                "date": "2014-12-25",
+                "country": "United States"
+            }
+        ],
+        "cast": [
+            {
+                "actor": "James Franco",
+                "character": "Dave Skylark"
+            },
+            {
+                "actor": "Seth Rogen",
+                "character": "Aaron Rapaport"
+            },
+            {
+                "actor": "Lizzy Caplan",
+                "character": "Agent Lacey"
+            },
+            {
+                "actor": "Randall Park",
+                "character": "Kim Jung-Un"
+            },
+            {
+                "actor": "Diana Bang",
+                "character": "Sook"
+            },
+            {
+                "actor": "Timothy Simons",
+                "character": "Malcolm"
+            },
+            {
+                "actor": "Reese Alexander",
+                "character": "Agent Botwin"
+            },
+            {
+                "actor": "James Yi",
+                "character": "Officer Koh"
+            },
+            {
+                "actor": "Paul Bae",
+                "character": "Officer Yu"
+            }
+        ],
+        "crew": [
+            {
+                "name": "Evan Goldberg",
+                "function": "Directing",
+                "role": "Director"
+            },
+            {
+                "name": "Seth Rogen",
+                "function": "Directing",
+                "role": "Director"
+            },
+            {
+                "name": "Dan Sterling",
+                "function": "Writing",
+                "role": "Story"
+            }
+        ],
+        "reviews": [],
+        "ratings": []
+    }
+]

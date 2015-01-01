@@ -3,7 +3,7 @@
   <li>
     <div class="timeline-panel">
       <div class="tl-heading">
-        <h4><%= review.headline %></h4>        <%= rating_for_user @movie, review.user, "score"%>
+        <h4><%= review.headline %></h4><%= rating_for_user @movie, review.user, "score"%>
         <p><small class="text-muted"><i class="fa fa-clock-o"></i>&nbsp<%= review.created_at.to_formatted_s(:long)   %></small></p>
       </div>
       <div class="tl-body">

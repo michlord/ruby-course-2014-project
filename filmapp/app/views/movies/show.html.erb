@@ -28,7 +28,7 @@
   </div>
   
   <h3>Reviews<small><%= link_to "Show All", paginated_movie_reviews_path(@movie, 1), class: "pull-right" %></small></h3>
-  <%= render partial: "reviews/review", locals: { reviews: [@review] } %>
+  <%= render partial: "reviews/review", locals: { reviews: [@review].compact } %>
   </div>
   <div class="col-lg-3">
     <div class="movie_poster">
@@ -51,15 +51,9 @@
         <dt><strong>Language:</strong></dt>
         <dd><%= @movie.language %></dd>
         <dt><strong>Release:</strong></dt>
-          <% @release_dates[0..-2].each do |g| %>
-          <dd>
-          <%= g.country %> <%= g.date %>,
-          </dd>
-          <% end %>
         <dd>
-          <%= @release_dates.last.country %> <%= @release_dates.last.date %>
+          <%= @release_dates.map { |rdate| rdate.date.to_s + " " + rdate.country }.join(", ") %>
         </dd>
-      </dl>
     </div>
   </div>
 </div>

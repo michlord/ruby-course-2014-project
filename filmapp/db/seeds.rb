@@ -1,66 +1,55 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+genres = {}
+actors = {}
+users = {}
 
 
-m = Movie.new(title: 'Gone Girl', description: "With his wife's disappearance having
- become the focus of an intense media circus, a man sees the spotlight turned on him when
- it's suspected that he may not be innocent.", webpage: 'http://www.gonegirlmovie.com/', runtime: 145,
- language: 'English')
- 
-g1 = Genre.new(name: 'Drama')
-g2 = Genre.new(name: 'Thriller')
-g1.save!
-g2.save!
-m.save!
-m.genres << g1
-m.genres << g2
-m.save!
+def create_if_not_exists(hash, key)
+  if !hash[key].present?
+    hash[key] = yield
+  else
+    hash[key]
+  end
+end
 
-ReleaseDate.new(movie: m, date: Date.new(2014, 10, 3), country: 'United States').save!
-ReleaseDate.new(movie: m, date: Date.new(2014, 10, 9), country: 'Poland').save!
+def seed_image(path)
+  File.open(File.join(Rails.root, "/db/seeds/images/#{path}.jpg"))
+end 
 
-actors = []
-actors << Actor.new(name: 'Ben Affleck')
-actors << Actor.new(name: 'Tyler Perry')
-actors << Actor.new(name: 'Rosamund Pike')
-actors << Actor.new(name: 'Neil Patrick Harris')
-actors << Actor.new(name: 'Missi Pyle')
-actors << Actor.new(name: 'Patrick Fugit')
-actors << Actor.new(name: 'Kim Dickens')
-actors << Actor.new(name: 'Casey Wilson')
-actors << Actor.new(name: 'Kathleen Rose Perkins')
-actors << Actor.new(name: 'Emily Ratajkowski')
-actors << Actor.new(name: 'Scoot McNairy')
-actors << Actor.new(name: 'Boyd Holbrook')
-actors << Actor.new(name: 'Carrie Coon')
+def load_movies_info()
+  JSON.parse(IO.read(File.join(Rails.root, "/db/seeds/movies.json")))
+end
 
-actors.each { |actor| actor.save! }
+movies_info = load_movies_info
 
-Cast.new(movie: m, actor: actors[0], character: 'Nick Dunne').save!
-Cast.new(movie: m, actor: actors[1], character: 'Amy Dunne').save!
-Cast.new(movie: m, actor: actors[2], character: 'Tanner Bolt').save!
-Cast.new(movie: m, actor: actors[3], character: 'Desi Collins').save!
-Cast.new(movie: m, actor: actors[4], character: 'Ellen Abbott').save!
-Cast.new(movie: m, actor: actors[5], character: 'Detective Jim Gulpin').save!
-Cast.new(movie: m, actor: actors[6], character: 'Detective Rhonda Boney').save!
-Cast.new(movie: m, actor: actors[7], character: 'Noelle Hawthorne').save!
-Cast.new(movie: m, actor: actors[8], character: 'Shawna Kelly').save!
-Cast.new(movie: m, actor: actors[9], character: 'Andie Hardy').save!
-Cast.new(movie: m, actor: actors[10], character: 'Tommy').save!
-Cast.new(movie: m, actor: actors[11], character: 'Jeff').save!
-Cast.new(movie: m, actor: actors[12], character: 'Margo Dunne').save!
+movies_info.each do |movie_info|
+  # create missing genres
+  # create missing actors
+  
+  m = Movie.create!(
+    title: movie_info["title"],
+    description: movie_info["description"],
+    webpage: movie_info["webpage"],
+    runtime: movie_info["runtime"],
+    language: movie_info["language"],
+    poster: seed_image("posters/" + movie_info["title"].downcase.tr(" ", "_")),
+    genres: movie_info["genres"].map { |genre| create_if_not_exists(genres, genre) { Genre.create!(name: genre) } },
+    crews: movie_info["crew"].map { |crew| Crew.create!(name: crew["name"], function: crew["function"], role: crew["role"]) },
+    casts: movie_info["cast"].map do |cast|
+      actor = create_if_not_exists(actors, cast["actor"]) {Actor.create!(name: cast["actor"])}
+      Cast.create!(actor: actor, character: cast["character"])
+    end,
+    release_dates: movie_info["release_dates"].map { |rdate| ReleaseDate.create!(date: rdate["date"], country: rdate["country"]) },
+    reviews: movie_info["reviews"].map do |review|
+      user = create_if_not_exists(users, review["user"]) { User.create!(email: review["user"], password: 'password1', password_confirmation: 'password1') }
+      Review.create!(headline: review["headline"], content: review["content"], user: user)
+    end,
 
-Crew.new(name: 'David Fincher', movie: m, function: 'Directing', role: 'Director').save!
-Crew.new(name: 'Gillian Flynn', movie: m, function: 'Writing', role: 'Novel').save!
-Crew.new(name: 'Gillian Flynn', movie: m, function: 'Writing', role: 'Screenplay').save!
-Crew.new(name: 'Reese Witherspoon', movie: m, function: 'Production', role: 'Producer').save!
-Crew.new(name: 'Leslie Dixon', movie: m, function: 'Production', role: 'Producer').save!
-Crew.new(name: 'Bruna Papandrea', movie: m, function: 'Production', role: 'Producer').save!
-Crew.new(name: 'Laray Mayfield', movie: m, function: 'Production', role: 'Casting').save!
-Crew.new(name: 'Jeff Cronenweth', movie: m, function: 'Camera', role: 'Director of Photography').save!
-Crew.new(name: 'Kirk Baxter', movie: m, function: 'Editing', role: 'Editor').save!
+  )
+  
+  movie_info["ratings"].map do |rating| 
+      user = create_if_not_exists(users, rating["user"]) { User.create!(email: rating["user"], password: 'password1', password_confirmation: 'password1') }
+      m.rate rating["stars"].to_f, user, "score"
+  end
+  
+end
