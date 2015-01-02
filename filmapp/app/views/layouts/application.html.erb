@@ -57,9 +57,13 @@
             <%= link_to "Sign out", destroy_user_session_path, { method: :delete, class: "navbar-link" } %>
             <% else %>
             You are not signed in.
+            <strong>
             <%= link_to "Sign up", new_user_registration_path, { class: "navbar-link"} %>
+            </strong>
             or
+            <strong>
             <%= link_to "Sing in", new_user_session_path, { class: "navbar-link"}  %>
+            </strong>
             <% end %>
           </p>
         </div>

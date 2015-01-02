@@ -1,2 +1,14 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">New review for <%= @movie.title %></h3>
+  </div>
+  <div class="panel-body">
+    <%= simple_form_for [:movie, @review] do |f| %>
+      <%= f.input :headline, as: :string %>
+      <%= f.input :content %>
+      <%= f.button :submit %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            movie_path(@movie), :class => 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>

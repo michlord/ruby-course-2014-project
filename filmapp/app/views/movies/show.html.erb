@@ -4,6 +4,7 @@
   <div class="col-lg-9">
   <h2> <%= @movie.title %> <small>(<%= @movie.year %>)</small> </h2>
   <%= rating_for @movie, "score", disable_after_rate: false %>
+  <%= link_to "Write a review", new_movie_review_path(@movie) %>
   <h3>Overview</h3>
   <p>
     <%= @movie.description %>
