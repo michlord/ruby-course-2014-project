@@ -5,7 +5,7 @@
   <div class="panel-body">
     <%= simple_form_for [:movie, @review] do |f| %>
       <%= f.input :headline, as: :string %>
-      <%= f.input :content %>
+      <%= f.input :content, input_html: { rows: 10 } %>
       <%= f.button :submit %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             movie_path(@movie), :class => 'btn btn-default' %>

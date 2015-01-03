@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/(:query)', to: 'search#index', :as => 'search'
+
   post '/rate' => 'rater#create', :as => 'rate'
   
   devise_for :users

@@ -53,8 +53,8 @@
           </ul>
           <p class="navbar-text navbar-right">
             <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>
-            <%= link_to "Sign out", destroy_user_session_path, { method: :delete, class: "navbar-link" } %>
+            Signed in as <strong><%= current_user.email %></strong>
+            <strong><%= link_to "Sign out", destroy_user_session_path, { method: :delete, class: "navbar-link" } %></strong>
             <% else %>
             You are not signed in.
             <strong>
@@ -73,12 +73,7 @@
     <div class="container">
       <%= bootstrap_flash %>
       <%= yield %>
-      <div class="row">
-        <div class="col-lg-12">
-          <h4>Recently Viewed</h4>
-          film1 | film2 | film3 ... etc.
-        </div>
-      </div>
+
       <hr/>
       <footer>
         <p>&copy; Michlord 2014</p>

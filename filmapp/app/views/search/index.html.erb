@@ -1,0 +1,31 @@
+
+
+<div class="row">
+  <div class="col-lg-2">
+  <h3>Search movies</h3>
+  </div>
+  <div class="col-lg-10">
+    <%= form_tag({controller: "search", action: "index"}, {method: :get, id: "search_form"}) do %>
+      <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1"><span class="fa fa-search"></span></span>
+      <%= text_field_tag :query, nil, placeholder: "Search here", class: "form-control", "aria-describedby" => "sizing-addon1" %>
+      <%= hidden_field_tag "genres_list", @genres_list.join(";") %>
+      <%= hidden_field_tag "new_genre", nil, id: "new_genre_field" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row top30">
+  <div class="col-lg-2 col-xs-4">
+    <p>Filter by genres</p>
+    <div class="list-group">
+      <% @genres.each do |genre| %>
+        <li class="list-group-item text-center <%= "disabled" if @genres_list.include? genre.name %>"><a href="#" onclick="$('#new_genre_field').val('<%=genre.name%>'); $('#search_form').submit();"><%= genre.name %></a></li>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-10">
+    Search results.
+  </div>
+</div>
