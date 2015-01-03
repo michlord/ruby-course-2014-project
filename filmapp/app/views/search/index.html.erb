@@ -26,6 +26,9 @@
     </div>
   </div>
   <div class="col-lg-10">
-    Search results.
+    <% @movies.each do |movie| %>
+      <%= render partial: "movies/movie", locals: { movie: movie } %>
+    <% end %>
+    <%= will_paginate @movies, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
