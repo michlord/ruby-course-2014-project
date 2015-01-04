@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
+    @query = params[:query]
     
     @genres_list = []
     
@@ -28,9 +29,9 @@ class SearchController < ApplicationController
       @genres_list.each do |g|
         m &= Movie.joins(:genres).where(genres: {name: g}).pluck(:movie_id)
       end
-      @movies = Movie.where(id: m)
+      @movies = Movie.search_by_title(@query).where(id: m)
     else
-      @movies = Movie.all
+      @movies = Movie.search_by_title(@query)
     end
     
     @movies = @movies.paginate(page: params[:page] , per_page: 5)

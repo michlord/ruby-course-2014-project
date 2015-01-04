@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  include PgSearch
+  
   has_many :genres_movies
   has_many :genres, through: :genres_movies
   has_many :casts
@@ -49,4 +51,19 @@ class Movie < ActiveRecord::Base
       where("id >= ?", rand_id).first
     end
   end
+  
+  pg_search_scope :search_by_title_scope,
+    against: [:title],
+    using: {
+      tsearch: { prefix: true, :dictionary => "english" }
+    }
+  
+  def self.search_by_title(query)
+    if query.present?
+      search_by_title_scope(query)
+    else
+      all
+    end
+  end
+  
 end

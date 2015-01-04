@@ -111,6 +111,10 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.1)
+    pg_search (0.7.8)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     rack (1.6.0)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -209,6 +213,7 @@ DEPENDENCIES
   less-rails
   paperclip (~> 4.2)
   pg
+  pg_search
   rails (= 4.2.0)
   ratyrate!
   sass-rails (~> 5.0)

@@ -8,7 +8,7 @@
     <%= form_tag({controller: "search", action: "index"}, {method: :get, id: "search_form"}) do %>
       <div class="input-group input-group-lg">
       <span class="input-group-addon" id="sizing-addon1"><span class="fa fa-search"></span></span>
-      <%= text_field_tag :query, nil, placeholder: "Search here", class: "form-control", "aria-describedby" => "sizing-addon1" %>
+      <%= text_field_tag :query, @query, placeholder: "Search here", class: "form-control", "aria-describedby" => "sizing-addon1" %>
       <%= hidden_field_tag "genres_list", @genres_list.join(";") %>
       <%= hidden_field_tag "new_genre", nil, id: "new_genre_field" %>
       </div>
