@@ -16,6 +16,7 @@ class SearchController < ApplicationController
       end
     end
     
+    @genres_list = @genres_list.first(10)
     @genres_list.uniq!
     @genres = Genre.all
     
