@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'search/(:query)', to: 'search#index', :as => 'search'
+  get 'search', to: 'search#index', :as => 'search'
 
   post '/rate' => 'rater#create', :as => 'rate'
   
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'movies#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
