@@ -2,8 +2,8 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update]
   
   def index
-    @movies = Movie.all
-    @genres = Genre.all
+    @movies = Movie.limit(9)
+    @genres = Genre.limit(9)
   end
   
   def show

@@ -6,14 +6,20 @@
     <h4 class="media-heading"><%= link_to movie.title, movie_path(movie) %> <small>(<%= movie.year %>)</small></h4>
     <%= rating_for movie, "score", disable_after_rate: false %>
     <p><%= truncate movie.description, length: 140 %></p>
-    <p><small>Director: <strong><%= movie.director_name %></strong></small></p>
-    <p>
+    <small>Director: <strong><%= movie.director_name %></strong></small>
+    <br/>
     <small>
     Stars: 
     <strong>
     <%= movie.casts[0..3].map { |cast| cast.actor.name }.join(", ") %>
     </strong>
     </small>
-    </p>
+    <br/>
+    <small>
+    Genre:
+    </small>
+    <% movie.genres.each do |g| %>
+        <span class="label label-info tags"><%= g.name %></span>
+    <% end %>
   </div>
 </div>
