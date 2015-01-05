@@ -1,5 +1,10 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  
+  before_filter :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+  before_filter only: [:create, :new, :edit, :update, :destroy] do 
+    redirect_to root_url, :alert => 'Admin permissions are needed.' unless current_user.try(:admin?)
+  end
   
   def index
     @movies = Movie.limit(9)
@@ -15,6 +20,7 @@ class MoviesController < ApplicationController
     @review = @movie.reviews.random
   end
   
+  
   def edit
     
   end
@@ -25,6 +31,10 @@ class MoviesController < ApplicationController
     else
       render action: 'edit'
     end
+  end
+  
+  def destroy
+    @movie.destroy
   end
   
   private

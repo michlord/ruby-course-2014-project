@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :new]
+  before_filter :authenticate_user!, only: [:create, :new, :destroy]
+  before_filter only: [:destroy] do 
+    redirect_to root_url, :alert => 'Admin permissions are needed.' unless current_user.try(:admin?)
+  end
+  
   def page
     @movie = Movie.find(params[:movie_id])
     @reviews = @movie.reviews.paginate(page: params[:page], per_page: 5)
@@ -30,5 +34,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to :back
   end
 end

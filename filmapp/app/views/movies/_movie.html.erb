@@ -21,5 +21,15 @@
     <% movie.genres.each do |g| %>
         <span class="label label-info tags"><%= g.name %></span>
     <% end %>
+    <% if current_user.try(:admin?) %>
+        <hr/>
+        <%= link_to "Edit",
+            edit_movie_path(movie), :class => "btn btn-default btn-xs" %>
+        <%= link_to "Delete",
+            movie_path(movie),
+            :method => :delete,
+            :data => { :confirm => "Are you sure?" },
+            :class => "btn btn-danger btn-xs" %>
+    <% end %>
   </div>
 </div>

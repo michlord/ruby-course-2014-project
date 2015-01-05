@@ -8,6 +8,14 @@
       </div>
       <div class="tl-body">
         <p><%= review.content %></p>
+        <% if current_user.try(:admin?) %>
+            <hr/>
+            <%= link_to "Delete",
+                review_path(review),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger btn-xs' %>
+        <% end %>
       </div>
     </div>
           <div class="tl-circ">
