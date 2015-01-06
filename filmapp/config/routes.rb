@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get 'page/:page', to: 'reviews#page' , on: :collection, as: :paginated
     end
   end
+  
+  
   resources :reviews, only: [:show, :edit, :update, :destroy]
   
   #get 'movies/:id' => 'movies#show'

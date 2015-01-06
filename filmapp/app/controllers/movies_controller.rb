@@ -37,12 +37,55 @@ class MoviesController < ApplicationController
     @movie.destroy
   end
   
+  def new
+    @movie = Movie.new
+  end
+  
+  def create
+    @movie = Movie.new(movie_params)
+    if params[:add_genre]
+      @movie.genres.build
+      render action: 'new'
+    elsif params[:remove_genre]
+      #nested_attributes automatically removes the genre
+      render action: 'new'
+    elsif params[:add_crew]
+      @movie.crews.build
+      render action: 'new'
+    elsif params[:remove_crew]
+      render action: 'new'
+    elsif params[:add_cast]
+      cast = @movie.casts.build
+      cast.build_actor
+      render action: 'new'
+    elsif params[:remove_cast]
+      render action: 'new'
+    elsif params[:add_release_date]
+      @movie.release_dates.build
+      render action: 'new'
+    elsif params[:remove_release_date]
+      render action: 'new'
+    else
+      if @movie.save
+        redirect_to movie_path(@movie), notice: 'Movie was successfully created.'
+      else
+        render action: 'new'
+      end
+    end
+  end
+  
   private
     def set_movie
       @movie = Movie.find(params[:id])
     end
     
     def movie_params
-      params.require(:movie).permit(:title, :description, :webpage, :runtime, :poster)
+      params.require(:movie).permit(
+        :title, :description, :webpage, :runtime, :poster, :language,
+        genres_attributes: [:id, :name, :_destroy],
+        crews_attributes: [:id, :name, :function, :role, :_destroy],
+        casts_attributes: [:id, :character, :_destroy, actor_attributes: [:id, :name, :_destroy]],
+        release_dates_attributes: [:id, :date, :country, :_destroy]
+      )
     end
 end

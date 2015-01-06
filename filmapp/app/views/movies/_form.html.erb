@@ -1,61 +1,114 @@
-<%= form_for @movie, :html => { :class => "form-horizontal movie" } do |f| %>
-
-    <% if @movie.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
+<%= simple_form_for @movie do |f| %>
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h3>
+        <h3 class="panel-title">Movie facts</h3>
       </div>
       <div class="panel-body">
-        <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+        <%= f.input :title, as: :string %>
+        <%= f.input :description, input_html: { rows: 10 } %>
+        <%= f.input :webpage, as: :string %>
+        <%= f.input :runtime %>
+        <%= f.input :language, as: :string %>
       </div>
     </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'form-control' %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Poster</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.input :poster, input_html: { onchange: "previewFile()" } %>
+        <img src="" height="200" alt="Image preview..." id="imgpreview">
+      </div>
     </div>
-    <%= error_span(@movie[:title]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Release dates</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.fields_for :release_dates do |ff| %>
+            <%= ff.input :date %>
+            <%= ff.input :country, as: :string %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "delete" %>
+        <% end %>
+        <hr/>
+        <%= f.submit "Add date", name: "add_release_date" %>
+        <%= f.submit "Delete checked", name: "remove_release_date" %>
+      </div>
     </div>
-    <%= error_span(@movie[:description]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :webpage, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :webpage, :class => 'form-control' %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Genres</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.fields_for :genres do |ff| %>
+            <%= ff.input :name, as: :string %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "delete" %>
+        <% end %>
+        <hr/>
+        <%= f.submit "Add genre", name: "add_genre" %>
+        <%= f.submit "Delete checked", name: "remove_genre" %>
+      </div>
     </div>
-    <%= error_span(@movie[:webpage]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :runtime, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :runtime, :class => 'form-control' %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Crew</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.fields_for :crews do |ff| %>
+            <%= ff.input :name, as: :string %>
+            <%= ff.input :function, as: :string %>
+            <%= ff.input :role, as: :string %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "delete" %>
+        <% end %>
+        <hr/>
+        <%= f.submit "Add crew", name: "add_crew" %>
+        <%= f.submit "Delete checked", name: "remove_crew" %>
+      </div>
     </div>
-    <%= error_span(@movie[:runtime]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :poster, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :poster %>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Crew</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.fields_for :casts do |ff| %>
+            <%= ff.input :character, as: :string %>
+            <%= ff.fields_for :actor do |fff| %>
+                <%= fff.input :name, as: :string %>
+            <% end %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "delete" %>
+        <% end %>
+        <hr/>
+        <%= f.submit "Add cast", name: "add_cast" %>
+        <%= f.submit "Delete checked", name: "remove_cast" %>
+      </div>
     </div>
-    <%= error_span(@movie[:poster]) %>
-  </div>
-  
-  
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            movies_path, :class => 'btn btn-default' %>
-
+    
+    <%= f.submit %>
 <% end %>
+
+<script type="text/javascript">
+function previewFile() {
+  var preview = document.querySelector('#imgpreview');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+</script>
