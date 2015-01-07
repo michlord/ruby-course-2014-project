@@ -62,3 +62,5 @@ gem 'will_paginate-bootstrap'
 gem 'simple_form'
 
 gem 'pg_search'
+
+gem 'bootstrap-datepicker-rails'

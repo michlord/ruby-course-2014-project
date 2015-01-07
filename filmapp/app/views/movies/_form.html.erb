@@ -1,3 +1,66 @@
+<%= simple_form_for @movie, 
+  html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    boolean: :horizontal_boolean
+  } do |f| %>
+
+<%= f.input :title, as: :string %>
+    <%= f.input :description, input_html: { rows: 10 } %>
+    <%= f.input :webpage, as: :string %>
+    <%= f.input :runtime %>
+<%= f.input :language, as: :string %>
+<%= f.input :poster, input_html: { onchange: "previewFile()" } %>
+<img src="" height="200" alt="Image preview..." id="imgpreview">
+
+<%= f.fields_for :release_dates do |ff| %>
+    <%= ff.input :date, as: :string, input_html: { data: { provide: :datepicker }, "data-date-format" => "yyyy-mm-dd"} %>
+    <%= ff.input :country, as: :string %>
+    <%= ff.check_box :_destroy %>
+    <%= ff.label :_destroy, "delete" %>
+<% end %>
+<hr/>
+<%= f.submit "Add date", name: "add_release_date" %>
+<%= f.submit "Delete checked", name: "remove_release_date" %>
+
+<%= f.fields_for :genres do |ff| %>
+    <%= ff.input :name, as: :string %>
+    <%= ff.check_box :_destroy %>
+    <%= ff.label :_destroy, "delete" %>
+<% end %>
+<hr/>
+<%= f.submit "Add genre", name: "add_genre" %>
+<%= f.submit "Delete checked", name: "remove_genre" %>
+
+<%= f.fields_for :crews do |ff| %>
+    <%= ff.input :name, as: :string %>
+    <%= ff.input :function, as: :string %>
+    <%= ff.input :role, as: :string %>
+    <%= ff.check_box :_destroy %>
+    <%= ff.label :_destroy, "delete" %>
+<% end %>
+<hr/>
+<%= f.submit "Add crew", name: "add_crew" %>
+<%= f.submit "Delete checked", name: "remove_crew" %>
+
+<%= f.fields_for :casts do |ff| %>
+    <%= ff.input :character, as: :string %>
+    <%= ff.fields_for :actor do |fff| %>
+        <%= fff.input :name, as: :string %>
+    <% end %>
+    <%= ff.check_box :_destroy %>
+    <%= ff.label :_destroy, "delete" %>
+<% end %>
+<hr/>
+<%= f.submit "Add cast", name: "add_cast" %>
+<%= f.submit "Delete checked", name: "remove_cast" %>
+
+<%= f.submit %>
+
+<% end %>
+
 <%= simple_form_for @movie do |f| %>
     <div class="panel panel-default">
       <div class="panel-heading">
