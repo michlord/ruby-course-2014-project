@@ -26,34 +26,10 @@ class MoviesController < ApplicationController
   end
   
   def update
-    if params[:add_genre]
-      @movie.genres.build
-      render action: 'edit'
-    elsif params[:remove_genre]
-      #nested_attributes automatically removes the genre
-      render action: 'edit'
-    elsif params[:add_crew]
-      @movie.crews.build
-      render action: 'edit'
-    elsif params[:remove_crew]
-      render action: 'edit'
-    elsif params[:add_cast]
-      cast = @movie.casts.build
-      cast.build_actor
-      render action: 'edit'
-    elsif params[:remove_cast]
-      render action: 'edit'
-    elsif params[:add_release_date]
-      @movie.release_dates.build
-      render action: 'edit'
-    elsif params[:remove_release_date]
-      render action: 'edit'
+    if @movie.update(movie_params)
+      redirect_to movie_path(@movie), notice: 'Movie was successfully updated.'
     else
-      if @movie.update(movie_params)
-        redirect_to movie_path(@movie), notice: 'Movie was successfully updated.'
-      else
-        render action: 'edit'
-      end
+      render action: 'edit'
     end
   end
   
@@ -90,6 +66,7 @@ class MoviesController < ApplicationController
     elsif params[:remove_release_date]
       render action: 'new'
     else
+      prevent_duplicates
       if @movie.save
         redirect_to movie_path(@movie), notice: 'Movie was successfully created.'
       else
@@ -112,4 +89,16 @@ class MoviesController < ApplicationController
         release_dates_attributes: [:id, :date, :country, :_destroy]
       )
     end
+    
+    def prevent_duplicates
+      @movie.genres = @movie.genres.collect do |genre|
+        Genre.find_or_create_by(name: genre.name)
+      end.uniq
+      
+      @movie.casts = @movie.casts.collect do |cast|
+        cast.actor = Actor.find_or_create_by(name: cast.actor.name)
+        cast
+      end
+    end
+    
 end
