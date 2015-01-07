@@ -1,4 +1,6 @@
 
+
+
 genres = {}
 actors = {}
 users = {}
@@ -25,6 +27,9 @@ def friendly_filename(filename)
             .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
             .gsub(/\s+/, '_')
 end
+
+#seed one admin account
+create_if_not_exists(users, 'michal.zimi@gmail.com') { User.create!(email: 'michal.zimi@gmail.com', password: 'password1', password_confirmation: 'password1', admin: true) }
 
 movies_info = load_movies_info
 
