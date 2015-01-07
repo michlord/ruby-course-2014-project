@@ -25,11 +25,7 @@ class Movie < ActiveRecord::Base
   
   has_many :reviews do
     def random
-      # id's are not consecutive for a movie's reviews
-      # so lets use whole possible id range for the random
-      # value.
-      rand_id = rand (Review.count + 1)
-      where("id >= ?", rand_id).first
+      limit(1).offset(rand(count)).first
     end
   end
   
@@ -77,6 +73,6 @@ class Movie < ActiveRecord::Base
   
   validates :title, presence: true
   
-  accepts_nested_attributes_for :genres, :crews, :casts, :release_dates #maybe add allow destroy
+  accepts_nested_attributes_for :genres, :crews, :casts, :release_dates, allow_destroy: true
   
 end

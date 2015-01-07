@@ -26,10 +26,39 @@ class MoviesController < ApplicationController
   end
   
   def update
-    if @movie.update(movie_params)
-      redirect_to movie_path(@movie), notice: 'Movie was successfully updated.'
-    else
+    @movie.assign_attributes(movie_params)
+    if params[:add_genre]
+      @movie.genres.build
       render action: 'edit'
+    elsif params[:remove_genre]
+      @movie.save
+      render action: 'edit'
+    elsif params[:add_crew]
+      @movie.crews.build
+      render action: 'edit'
+    elsif params[:remove_crew]
+      @movie.save
+      render action: 'edit'
+    elsif params[:add_cast]
+      cast = @movie.casts.build
+      cast.build_actor
+      render action: 'edit'
+    elsif params[:remove_cast]
+      @movie.save
+      render action: 'edit'
+    elsif params[:add_release_date]
+      @movie.release_dates.build
+      render action: 'edit'
+    elsif params[:remove_release_date]
+      @movie.save
+      render action: 'edit'
+    else
+      prevent_duplicates
+      if @movie.save
+        redirect_to movie_path(@movie), notice: 'Movie was successfully updated.'
+      else
+        render action: 'edit'
+      end
     end
   end
   
