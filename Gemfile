@@ -64,3 +64,7 @@ gem 'simple_form'
 gem 'pg_search'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'countries'
+
+gem 'country_select', github: 'stefanpenner/country_select'

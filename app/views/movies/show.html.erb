@@ -53,7 +53,7 @@
         <dd><%= @movie.language %></dd>
         <dt><strong>Release:</strong></dt>
         <dd>
-          <%= @release_dates.map { |rdate| rdate.date.to_s + " " + rdate.country }.join(", ") %>
+          <%= @release_dates.map { |rdate| rdate.date.to_s + " " + Country.new(rdate.country).name }.join(", ") %>
         </dd>
     </div>
   </div>

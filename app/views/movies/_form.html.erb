@@ -54,7 +54,7 @@
                     <div class="help">Date</div>
                 </div>
                 <div class="col-sm-3">
-                    <%= ff.text_field :country, class: "form-control" %>
+                    <%= ff.country_select :country, nil, { selected: "US", locale: "en" }, { class: "form-control" } %>
                     <div class="help">Country</div>
                 </div>
                 <div class="col-sm-3">
